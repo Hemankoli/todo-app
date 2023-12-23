@@ -70,14 +70,12 @@ function Home() {
           className="form-control"
           onKeyDown={(e) => e.key === 'Enter' && addTodo()}
         />
-        <button onClick={addTodo} className="btn btn-primary">
-          +
-        </button>
+        <button onClick={addTodo} className="btn btn-primary ">➕</button>
       </div>
       <div className="todo-list w-100">
         {todos
           .filter((todo) => !todo.completed)
-          .sort((a, b) => b.timestamp - a.timestamp) // Sort active todos by creation time
+          .sort((a, b) => b.timestamp - a.timestamp)
           .map((todo) => (
             <div
               key={todo.id}
@@ -89,14 +87,14 @@ function Home() {
               >
                 {todo.text}
               </div>
-              <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger btn-sm">
-                *
+              <button onClick={() => deleteTodo(todo.id)} className="btn btn-md">
+                ❌ 
               </button>
             </div>
           ))}
         {todos
           .filter((todo) => todo.completed)
-          .sort((a, b) => b.completionTimestamp - a.completionTimestamp) // Sort completed todos by completion time
+          .sort((a, b) => b.completionTimestamp - a.completionTimestamp) 
           .map((todo) => (
             <div
               key={todo.id}
@@ -108,8 +106,8 @@ function Home() {
               >
                 {todo.text}
               </div>
-              <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger btn-sm">
-                *
+              <button onClick={() => deleteTodo(todo.id)} className="btn btn-md">
+              ✔
               </button>
             </div>
           ))}
